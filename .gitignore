@@ -1,0 +1,25 @@
+# Node
+node_modules/
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Java
+*.class
+target/
+*.jar
+
+# VS Code
+.vscode/
+.history/
+
+# Docker
+*.log
+*.pid
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,30 @@
+# Força finals de línia LF en codi font (compatible Linux/Unix)
+*.js text eol=lf
+*.ts text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.sh text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+
+# Evita canvis invisibles en Windows causats per CRLF
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+
+# Tracta aquests com a binaris: no fer diff/merge
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.pdf binary
+
+# Fitxers CSV o log: poden mostrar-se bé a diffs
+*.csv text
+*.log text
+
+# Garantir UTF-8 (opcional, per compatibilitat internacional)
+*.py text working-tree-encoding=UTF-8
+*.java text working-tree-encoding=UTF-8
+*.md text working-tree-encoding=UTF-8
