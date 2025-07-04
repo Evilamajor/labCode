@@ -1,0 +1,28 @@
+version: '3.8'  # Versió del format de Docker Compose
+
+services:  # Llista de serveis (contenidors) a crear
+
+  db:
+    image: postgres:15
+    container_name: laboratoridb
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: labdb
+    volumes:
+      - ./database/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ./backends/python
+      dockerfile: Dockerfile
+    container_name: laboratoribackend
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://admin:admin123@db:5432/labdb
+    ports:
+      - "5000:5000"
