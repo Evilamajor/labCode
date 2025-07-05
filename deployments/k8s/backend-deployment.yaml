@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laboratoribackend-deployment
+spec:
+  replicas: 1  # Quants Pods volem tenir actius
+  selector:
+    matchLabels:
+      app: laboratoribackend
+  template:
+    metadata:
+      labels:
+        app: laboratoribackend
+    spec:
+      containers:
+        - name: laboratoribackend
+          image: flask-backend:latest  # Nom de la imatge construïda
+          imagePullPolicy: Never  # No descarregar la imatge des del registre
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DATABASE_URL
+              value: postgresql://admin:admin123@db:5432/labdb

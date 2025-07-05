@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: laboratoribackend-service
+spec:
+  selector:
+    app: laboratoribackend  # Coincideix amb les etiquetes del Pod
+  ports:
+    - protocol: TCP
+      port: 80              # Port intern del servei
+      targetPort: 5000      # Port del contenidor (Flask)
+  type: NodePort            # Exposa el servei externament en un port aleatori
